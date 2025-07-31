@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      String s=sc.next();
+      
+      int max=1;
+      for(int center=0;center<s.length();center++){
+        int left=center,right=center;
+        while(left>=0&&right<s.length() && s.charAt(left)==s.charAt(right)){
+          max=Math.max(max,right-left+1);
+          left--;
+          right++;
+        }
+      left=center;right=center+1;
+        while(left>=0&&right<s.length() && s.charAt(left)==s.charAt(right)){
+          max=Math.max(max,right-left+1);
+          left--;
+          right++;
+        }
+  }
+  System.out.println(max);
+}
+}
