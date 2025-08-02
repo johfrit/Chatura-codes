@@ -1,0 +1,66 @@
+input:
+5
+5 1 3 4 2
+2
+Output:
+40
+
+//bruteforce approach
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner (System.in);
+      int n=sc.nextInt();
+      int arr[]=new int[n];
+      for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+      }
+      int k=sc.nextInt();
+    
+      System.out.println(function(arr,k));
+  }
+  static int function(int arr[],int k){
+    int prod=1;
+    for(int i=0;i<arr.length;i++){
+      if(i!=k){
+      prod*=arr[i];
+      }
+    }
+    return prod;
+  }
+}
+
+
+// prefix sum kinda approach
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner (System.in);
+      int n=sc.nextInt();
+      int arr[]=new int[n];
+      for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+      }
+      int k=sc.nextInt();
+    
+      System.out.println(function(arr,k));
+  }
+  static int function(int arr[],int k){
+    int pre[]=new int[arr.length];
+    int suf[]=new int[arr.length];
+    int prod=1;
+    for(int i=0;i<arr.length;i++){
+      prod*=arr[i];
+      pre[i]=prod;
+    }
+    prod=1;
+     for(int i=arr.length-1;i>=0;i--){
+      prod*=arr[i];
+      suf[i]=prod;
+    }
+    return pre[k-1]*suf[k+1];
+  }
+}
