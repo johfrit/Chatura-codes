@@ -1,0 +1,31 @@
+input:
+12
+1 1 1 2 2 2 3 3 3 4 4 5
+Output:
+[1, 2, 3, 4, 5, 2, 3, 3, 3, 4, 4, 5]
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner (System.in);
+      int n=sc.nextInt();
+      int arr[]=new int[n];
+      for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+      }
+      
+    
+      System.out.println(Arrays.toString(function(arr)));
+  }
+  static int[] function(int arr[]){
+    int left=0;
+    for(int right=0;right<arr.length;right++){
+      if(arr[right]!=arr[left]){
+        left++;
+        arr[left]=arr[right];
+      }
+    }
+    return arr;
+  }
+}
