@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            System.out.println(isPalindrome(arr));
+        }
+    }
+    static String isPalindrome(int arr[]){
+        boolean ans=true;
+        int left=0,right=arr.length-1;
+        while(left<=right){
+            if(arr[left]==arr[right]){
+                right--;
+                left++;
+            }
+            else{
+                ans=false;
+                break;
+            }
+        }
+        if(ans==true){
+            return "YES";
+        }
+        return "NO";
+    } 
+}
