@@ -1,0 +1,53 @@
+//Sample Input 0
+1
+4
+4 8 5 2
+Sample Output 0
+2 5 2 -1
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            int ans[]=smallest(arr);
+            for(int a:ans){
+                System.out.print(a+" ");
+            }
+        }
+    }
+    static int[] smallest(int arr[]){
+        int ans[]=new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            int key=arr[i];
+            boolean a=false;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[j]<key){
+                ans[i]=arr[j];
+                    a=true;
+                break;
+                }
+                
+            }
+            if (a==false){
+                ans[i]=-1;
+            }
+        }
+        return ans;
+    }
+    
+}
