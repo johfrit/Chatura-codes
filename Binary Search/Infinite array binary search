@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int arr[]=new int[n];
+      for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+      }
+      int tar=sc.nextInt();
+      System.out.print(ans(arr,tar));
+  }
+  static int ans(int arr[],int tar){
+    int start=0;
+    int end=1;
+    while(tar>arr[end]){
+      int temp=end+1;
+      end=end+(end-start+1)*2;
+      start=temp;
+    }
+     return binarysearch(arr,tar,start,end);
+    
+  }
+  static int binarysearch(int arr[],int tar,int start,int end){
+    while(start<=end){
+      int mid=start+(end-start)/2;
+      if(tar==arr[mid]){
+        return mid;
+      }
+      else if(tar>arr[mid]){
+        start=mid+1;
+        
+      }
+      else{
+        end=mid-1;
+      }
+    }
+    return -1;
+  }
+}
