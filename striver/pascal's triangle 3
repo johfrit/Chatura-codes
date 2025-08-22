@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      ArrayList<ArrayList<Integer>> triangle=new ArrayList<>();
+      for(int i=1;i<=n;i++){
+        triangle.add(getrow(i));
+      }
+      for(ArrayList<Integer> a :triangle){
+        for(int b: a){
+          System.out.print(b+" ");
+        }
+        System.out.println();
+      }
+      
+  }
+  static ArrayList<Integer> getrow(int r){
+    int row=1;
+    ArrayList<Integer> row1=new ArrayList<>();
+    row1.add(row);
+    for(int i=1;i<r;i++){
+      row=row*(r-i);
+      row/=i;
+      row1.add(row);
+    }
+    return row1;
+    
+  }
+}
