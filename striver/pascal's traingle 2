@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int r=sc.nextInt();
+      System.out.print(fun(r));
+  }
+  static ArrayList<Integer> fun(int r){
+    int ans=1;
+    ArrayList<Integer> ans1=new ArrayList<>();
+    ans1.add(ans);
+    for(int i=1;i<r;i++){
+      ans=ans*(r-i);
+      ans/=i;
+      ans1.add(ans);
+    }
+    return ans1;
+    
+  }
+}
